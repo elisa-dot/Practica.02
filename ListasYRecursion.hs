@@ -1,4 +1,4 @@
---1. Longitud de una lista
+{-Ejercicio 1-}
 longitud :: [a] -> Int
 longitud [] = 0
 longitud (x:xs) = 1 + longitud xs
@@ -8,7 +8,7 @@ sumaLista :: Num a => [a] -> a
 sumaLista [x] = x
 sumaLista (x:xs) = x + sumaLista xs
 
---3. Agrega elementos a una lista
+{-Ejercicio 3-}
 agregaElemento :: [a] -> a -> Bool -> [a]
 agregaElemento (x:xs) a True =  a:(x:xs)
 agregaElemento (x:xs) a False = (x:xs)++[a]
@@ -22,7 +22,7 @@ maximoLista (x : xs)=
         then x
         else maximoLista xs
 
---5. Recuperar un elemento de una lista de acuerdo a su índice
+{-Ejercicio 5-}
 indice :: [a] -> Int -> a
 indice [] index = error "No hay elementos"
 indice (x:xs) index = if index==0 
@@ -31,9 +31,9 @@ indice (x:xs) index = if index==0
 {-EJERCICIO 6-}
 
 divisores :: Int -> [Int]
-divisores n = [x | x <- [1..n],n 'mod' x == 0]
+divisores n = [x | x <- [1..n],n `mod` x == 0]
 
---7. Convertir una lista en conjunto
+{-ejercicio 7-}
 conjunto :: Eq a => [a] -> [a]
 conjunto [] = []
 conjunto (x:xs) = x:conjunto[y | y <- xs, x/=y]
@@ -41,4 +41,4 @@ conjunto (x:xs) = x:conjunto[y | y <- xs, x/=y]
 {-EJERCICIO 8-}
 
 numerosPares :: [Int] -> [Int]
-numerosPares lista = [x | x <- lista, x 'mod' 2 == 0]
+numerosPares lista = [x | x <- lista, x `mod` 2 == 0]
