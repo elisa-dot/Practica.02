@@ -13,10 +13,10 @@ agregaElemento :: [a] -> a -> Bool -> [a]
 agregaElemento (x:xs) a True =  a:(x:xs)
 agregaElemento (x:xs) a False = (x:xs)++[a]
 
-{-EJERCICO 4-}
+{-EJERCICO 4-} 
 
 maximoLista :: (Num a, Ord a) => [a] -> a
-maximoLista [] = 0
+maximoLista [x] = x
 maximoLista (x : xs)=
     if x > maximoLista xs
         then x
