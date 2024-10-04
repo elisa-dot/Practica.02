@@ -10,8 +10,8 @@ sumaLista (x:xs) = x + sumaLista xs
 
 {-Ejercicio 3-}
 agregaElemento :: [a] -> a -> Bool -> [a]
-agregaElemento (x:xs) a True =  a:(x:xs)
-agregaElemento (x:xs) a False = (x:xs)++[a]
+agregaElemento [a] a True =  a:[a]
+agregaElemento [a] a False = [a]++[a]
 
 {-EJERCICO 4-} 
 
@@ -25,11 +25,12 @@ maximoLista (x : xs)=
 {-Ejercicio 5-}
 indice :: [a] -> Int -> a
 indice [] index = error "No hay elementos"
-indice (x:xs) index = if index==0 
+indice (x:xs) index = if index > 0 && index < longitud(x:xs)-1 if index==0 
+                        then error "Indice no válido"
+                        else if index == 0
                         then x
                         else indice xs (index -1)
 {-EJERCICIO 6-}
-
 divisores :: Int -> [Int]
 divisores n = [x | x <- [1..n],n `mod` x == 0]
 
