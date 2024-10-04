@@ -25,7 +25,7 @@ maximoLista (x : xs)=
 {-Ejercicio 5-}
 indice :: [a] -> Int -> a
 indice [] index = error "No hay elementos"
-indice (x:xs) index = if index <= 0 && index >= longitud(x:xs)-1 
+indice (x:xs) index = if index < 0 || index > longitud(x:xs)-1 
                         then error "Indice no válido"
                         else if index == 0
                         then x
