@@ -10,8 +10,8 @@ sumaLista (x:xs) = x + sumaLista xs
 
 {-Ejercicio 3-}
 agregaElemento :: [a] -> a -> Bool -> [a]
-agregaElemento [a] a True =  a:[a]
-agregaElemento [a] a False = [a]++[a]
+agregaElemento lista elem True =  elem:lista
+agregaElemento lista elem False = lista++[elem]
 
 {-EJERCICO 4-} 
 
@@ -25,7 +25,7 @@ maximoLista (x : xs)=
 {-Ejercicio 5-}
 indice :: [a] -> Int -> a
 indice [] index = error "No hay elementos"
-indice (x:xs) index = if index > 0 && index < longitud(x:xs)-1 if index==0 
+indice (x:xs) index = if index <= 0 && index >= longitud(x:xs)-1 
                         then error "Indice no válido"
                         else if index == 0
                         then x
