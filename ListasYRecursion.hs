@@ -1,44 +1,52 @@
+
 {-Ejercicio 1-}
+
 longitud :: [a] -> Int
 longitud [] = 0
-longitud (x:xs) = 1 + longitud xs
+longitud (x:xs) = 1 + longitud(xs)
 
-{-EJERCICIO 2-}
+{-Ejercicio 2-}
 sumaLista :: Num a => [a] -> a
-sumaLista [x] = x
-sumaLista (x:xs) = x + sumaLista xs
+sumaLista [a] = a
+sumaLista (x:xs) = x + sumaLista(xs)
 
 {-Ejercicio 3-}
-agregaElemento :: [a] -> a -> Bool -> [a]
-agregaElemento (x:xs) a True =  a:(x:xs)
-agregaElemento (x:xs) a False = (x:xs)++[a]
+agregarElemento :: [a] -> a -> Bool -> [a]
+agregarElemento lista a bool = 
+         if bool 
+        then  a:lista
+        else lista++[a]
 
-{-EJERCICO 4-} 
-
+{-Ejercicio 4-}
 maximoLista :: (Num a, Ord a) => [a] -> a
-maximoLista [x] = x
-maximoLista (x : xs)=
-    if x > maximoLista xs
+maximoLista [] = error "no se puede ingresar una lista vacía"
+maximoLista [x] = x     
+maximoLista (x:xs)=
+        if x > maximoLista(xs)
         then x
-        else maximoLista xs
+        else maximoLista(xs)
 
 {-Ejercicio 5-}
 indice :: [a] -> Int -> a
-indice [] index = error "No hay elementos"
-indice (x:xs) index = if index==0 
-                        then x
-                        else indice xs (index -1)
-{-EJERCICIO 6-}
+indice [] index = error "no puedes ingresa una lista vacía"
+indice (x:xs) index =  if  index < 0 || index > longitud(x:xs)-1
+        then error "indice no válido"
+        else  if index == 0
+    then x
+    else indice xs (index -1)
 
+
+{-Ejercicio 6-}
 divisores :: Int -> [Int]
-divisores n = [x | x <- [1..n],n `mod` x == 0]
+divisores a = [x|x <- [1..a] , mod a x == 0]
 
-{-ejercicio 7-}
+{-Ejercicio 7-}
 conjunto :: Eq a => [a] -> [a]
 conjunto [] = []
-conjunto (x:xs) = x:conjunto[y | y <- xs, x/=y]
+conjunto (x:xs) = x:conjunto[a|a<-xs,x/=a] 
 
-{-EJERCICIO 8-}
-
+{-Ejercicio 8-}
 numerosPares :: [Int] -> [Int]
-numerosPares lista = [x | x <- lista, x `mod` 2 == 0]
+numerosPares xs =  [x| x<- xs, mod x 2 == 0]
+
+
